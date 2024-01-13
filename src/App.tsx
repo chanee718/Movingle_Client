@@ -1,25 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import Login from './login/Login';
+import Join from './login/Join';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <nav className="App-nav">
+        <Link to="/">Home</Link>
+        <input type="text" placeholder="Search for movies" className="nav-search" />
+        <Link to="/about">About</Link>
+        <Link to="/login">Login</Link>
+      </nav>
+      <div className="App">
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/join" element={<Join />} />
+          {/* 다른 라우트들을 여기에 추가 */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

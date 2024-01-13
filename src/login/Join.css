@@ -1,0 +1,112 @@
+.Join {
+    background: linear-gradient(#2F4858, #515F75, #787690, #A18DA8, #CAA6BB, #F1C1CC);
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    min-height: 100vh;
+}
+
+.join-form {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.join-form h1 {
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+    color: #fff;
+}
+
+.join-form label {
+    display: block;
+    text-align: left;
+    color: #fff;
+}
+
+.image-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.image-group label {
+    margin-left: 1.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.profile-placeholder {
+    margin-right: 1.5rem;
+    min-width: 150px;
+    min-height: 150px;
+    width: 150px;
+    height: 150px;
+    background-color: #ccc;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.profile-preview {
+    margin-right: 1.5rem;
+    min-width: 150px;
+    min-height: 150px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover; /* 이미지가 원형에 맞춰서 잘리도록 함 */
+}
+
+.name-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+
+.join-group input, label {
+    box-sizing: border-box; /* padding과 border를 너비에 포함 */
+    width: 100%;
+}
+
+.join-group label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    font-size: 1rem; /* 텍스트 크기를 늘립니다 */
+}
+
+.join-group input {
+    width: 100%;
+    padding: 8px;
+    background-color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+}
+
+.create button {
+    width: 100%;
+    margin-top: 3rem;
+    padding: 10px;
+    background-color: #AF9FF9;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem; /* 텍스트 크기를 늘립니다 */
+    font-weight: bold; /* 텍스트를 굵게 합니다 */
+}
+
+.create button:hover {
+    background-color: #786BC1;
+}
