@@ -10,6 +10,7 @@
     flex-direction: column;  
     margin-left: 15rem;
     margin-top: 10rem;
+    margin-bottom: 10rem;
     width: 25rem;
     padding: 20px;
     border-radius: 5px;
@@ -77,6 +78,7 @@
 .remember-me button span:hover{
     color: #92B2F2;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .login button {

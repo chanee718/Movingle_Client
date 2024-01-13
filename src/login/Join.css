@@ -50,9 +50,12 @@
     min-height: 150px;
     width: 150px;
     height: 150px;
-    background-color: #ccc;
     cursor: pointer;
     border-radius: 50%;
+    background-image: url('../images/blankimg.png'); /* 배경 이미지 설정 */
+    background-size: cover; /* 이미지가 컨테이너를 완전히 채우도록 조정 */
+    background-position: center; /* 이미지를 중앙에 배치 */
+    background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
 }
 
 .profile-preview {
@@ -94,9 +97,15 @@
     border-radius: 5px;
 }
 
+.warning {
+    text-align: left;
+    color: red;
+}
+
 .create button {
     width: 100%;
     margin-top: 3rem;
+    margin-bottom: 5rem;
     padding: 10px;
     background-color: #AF9FF9;
     color: black;

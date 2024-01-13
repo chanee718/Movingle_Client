@@ -1,10 +1,19 @@
-import React from 'react';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import './App.css';
 import Login from './login/Login';
 import Join from './login/Join';
 
 const App: React.FC = () => {
+  const [hello, setHello] = useState('');
+  // useEffect(() => {
+  //   axios.get('/api/test')
+  //       .then((res) => {
+  //           setHello(res.data);
+  //       })
+  // }, []);
+
   return (
     <Router>
       <nav className="App-nav">
