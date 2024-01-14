@@ -1,0 +1,80 @@
+@use '/src/styles/constants/colors';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  margin-top: 10rem;
+  /* background-color: grey; */
+
+  &:hover {
+    .swipeLeft,
+    .swipeRight {
+      position: absolute;
+      z-index: 1;
+      display: flex;
+      background-color: transparent;
+      border: none;
+    }
+  }
+
+  .swipeLeft,
+  .swipeRight {
+    display: none;
+    padding: 0;
+    margin: 0 2rem;
+  }
+  
+  .swipeLeft {
+    left: 0;
+  }
+
+  .swipeRight {
+    right: 0;
+  }
+
+  .carouselWrapper {
+    position: relative;
+    width: 100%;
+    padding: 0 10%;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    overflow: hidden;
+
+    .carousel {
+      display: flex;
+      width: 100%;
+
+      li {
+        flex: none;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .carouselItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 7);
+    height: 300px;
+    padding: 10px 0 15px;
+    overflow: hidden;
+    margin: 0 10px;
+    transition: border 300ms;
+
+    img {
+      object-fit: cover;
+      min-width: 100%;
+      min-height: 100%;
+    }
+  }
+
+  :root[color-theme='dark'] & {
+    .carouselItem {
+      border-right: 2px solid gray;
+      border-left: 2px solid gray;
+    }
+  }
+}

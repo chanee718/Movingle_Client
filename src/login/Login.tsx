@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate  } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Login.css'; // CSS 파일 임포트
+import axios from 'axios';
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -9,11 +10,32 @@ const Login: React.FC = () => {
 
     const navigate = useNavigate();
 
-    const handleSubmit = (event: React.FormEvent) => {
+    const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         // 로그인 로직 처리
-        console.log('로그인 시도: ', email, password);
-        // 서버에 로그인 요청을 보내는 로직을 여기에 구현하세요.
+        const loginData = {
+            email,
+            password,
+        };
+        try {
+            // 서버에 로그인 요청 보내기
+            const response = await axios.post('http://172.10.7.55:80/login', loginData);
+            // 로그인 성공 처리
+            console.log('Login Successful:', response.data);
+
+            if (remember) {
+                localStorage.setItem('authToken', response.data.token); // 로컬 스토리지에 저장
+                localStorage.setItem('loginMail', email);
+            } else {
+                sessionStorage.setItem('authToken', response.data.token); // 세션 스토리지에 저장
+                sessionStorage.setItem('loginMail', email);
+            }
+
+            navigate('/'); 
+        } catch (error) {
+            console.log(error);
+            alert('The email or password do not match');
+        }
     };
 
     const handleJoin = () => {
@@ -52,7 +74,7 @@ const Login: React.FC = () => {
                         onChange={(e) => setRemember(e.target.checked)}
                     />
                     <span></span>
-                    <label htmlFor="remember"><span></span> Keep me signed in</label>
+                    <label htmlFor="remember"><span></span>Keep me signed in</label>
                     <button>
                         <span>Reset Password</span>
                     </button>

@@ -41,7 +41,7 @@
     display: block;
     margin-bottom: 0.5rem;
     color: #fff;
-    font-size: 1rem;
+    font-size: 1.3rem;
 }
 
 .profile-placeholder {
@@ -107,15 +107,14 @@
     margin-top: 3rem;
     margin-bottom: 5rem;
     padding: 10px;
-    background-color: #AF9FF9;
-    color: black;
+    background-color: #4E4351;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem; /* 텍스트 크기를 늘립니다 */
-    font-weight: bold; /* 텍스트를 굵게 합니다 */
 }
 
 .create button:hover {
-    background-color: #786BC1;
+    background-color: #302037;
 }

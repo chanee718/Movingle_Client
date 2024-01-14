@@ -1,5 +1,5 @@
 .App {
-  background: linear-gradient(#2F4858, #515F75, #787690, #A18DA8, #CAA6BB, #F1C1CC);
+  background: linear-gradient(165deg, #2F4858, #515F75, #787690, #A18DA8, #CAA6BB, #F1C1CC);
   min-height: 100vh;
   text-align: center;
   padding-top: 50px;
@@ -9,6 +9,7 @@
   position:fixed;
   top: 0;
   width:100%;
+  z-index: 1000;
   background-color: #2F4858; 
   display: flex; /* Flexbox를 사용 */
   justify-content: flex-start; /* 아이템을 시작점에서 정렬 */
@@ -44,6 +45,6 @@
 }
 
 .data {
-  font-size: 2rem;
+  font-size: 5rem;
   color: white;
 }

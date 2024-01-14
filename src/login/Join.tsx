@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import axios from "axios";
 import './Join.css'; // CSS 파일 임포트
+import { useNavigate } from 'react-router-dom';
 
 const Join: React.FC = () => {
     const [firstname, setFirstname] = useState<string>('');
@@ -20,6 +21,8 @@ const Join: React.FC = () => {
     const [hasoneliner, setHasoneliner] = useState<boolean>(true);
 
     const fileInputRef = useRef<HTMLInputElement>(null);
+
+    const navigate = useNavigate();
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
@@ -64,7 +67,7 @@ const Join: React.FC = () => {
         formData.append('oneliner', oneliner);
 
         try {
-            const response = await axios.post('http://localhost:3000/register', formData, {
+            const response = await axios.post('http://172.10.7.55:80/register', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -74,6 +77,8 @@ const Join: React.FC = () => {
         } catch (error) {
             console.error('There was an error!', error);
         }
+        alert('Your account was successfully confirmed.'); // 알림 표시
+        navigate('/login'); // 로그인 페이지로 리디렉트
         
     };
 
@@ -124,6 +129,7 @@ const Join: React.FC = () => {
                             value={firstname}
                             onChange={(e) => setFirstname(e.target.value)}
                             style={{ borderColor: hasfirstname ? '' : 'red' }}
+                            placeholder='ex) Gil Dong'
                         />
                         {!hasfirstname && <div className='warning'>Missing First Name!</div>}
                     </div>
@@ -136,6 +142,7 @@ const Join: React.FC = () => {
                             value={lastname}
                             onChange={(e) => setLastname(e.target.value)}
                             style={{ borderColor: haslastname ? '' : 'red' }}
+                            placeholder='ex) Hong'
                         />
                         {!haslastname && <div className='warning'>Missing Last Name!</div>}
                     </div>
