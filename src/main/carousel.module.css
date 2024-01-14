@@ -1,12 +1,10 @@
-@use '/src/styles/constants/colors';
-
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   width: auto;
-  margin-top: 10rem;
-  /* background-color: grey; */
+  margin-top: 2rem;
+  background-color: grey;
 
   &:hover {
     .swipeLeft,
@@ -24,6 +22,7 @@
     display: none;
     padding: 0;
     margin: 0 2rem;
+    cursor: pointer;
   }
   
   .swipeLeft {
@@ -49,6 +48,13 @@
       li {
         flex: none;
         object-fit: contain;
+
+        a {
+          display: block; /* Link를 블록 레벨로 만들기 */
+          width: 100%; /* Link의 너비를 li 요소의 너비에 맞추기 */
+          height: 100%; /* Link의 높이를 li 요소의 높이에 맞추기 */
+          text-decoration: none; /* 텍스트 꾸밈 제거 */
+        }
       }
     }
   }
@@ -58,23 +64,18 @@
     align-items: center;
     justify-content: center;
     width: calc(100% / 7);
-    height: 300px;
+    min-height: 300px;
     padding: 10px 0 15px;
     overflow: hidden;
-    margin: 0 10px;
+    margin: 0 5px;
     transition: border 300ms;
 
     img {
-      object-fit: cover;
-      min-width: 100%;
-      min-height: 100%;
-    }
-  }
-
-  :root[color-theme='dark'] & {
-    .carouselItem {
-      border-right: 2px solid gray;
-      border-left: 2px solid gray;
+      width: 100%; /* 너비를 항상 100%로 유지 */
+      height: 300px; /* 높이도 항상 100%로 유지 */
+      object-fit: cover; /* 이미지가 비율을 유지하면서 요소를 채우도록 함 */
+      object-position: center; /* 이미지가 중앙에 위치하도록 함 */
+      border-radius: 0.5rem;
     }
   }
 }

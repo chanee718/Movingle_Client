@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Login.css'; // CSS 파일 임포트
 import axios from 'axios';
 
-const Login: React.FC = () => {
+const Login: React.FC<{ onLoginSuccess: () => void }> = ({ onLoginSuccess }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [remember, setRemember] = useState(false);
@@ -30,7 +30,7 @@ const Login: React.FC = () => {
                 sessionStorage.setItem('authToken', response.data.token); // 세션 스토리지에 저장
                 sessionStorage.setItem('loginMail', email);
             }
-
+            onLoginSuccess();
             navigate('/'); 
         } catch (error) {
             console.log(error);
