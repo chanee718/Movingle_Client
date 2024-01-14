@@ -4,7 +4,6 @@
   justify-content: center;
   width: auto;
   margin-top: 2rem;
-  background-color: grey;
 
   &:hover {
     .swipeLeft,
