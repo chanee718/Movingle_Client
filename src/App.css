@@ -1,13 +1,15 @@
 .App {
-  background: linear-gradient(#2F4858, #515F75, #787690, #A18DA8, #CAA6BB, #F1C1CC);
+  background: linear-gradient(165deg, #2F4858, #515F75, #787690, #A18DA8, #CAA6BB, #F1C1CC);
   min-height: 100vh;
   text-align: center;
+  padding-top: 50px;
 }
 
 .App-nav {
   position:fixed;
   top: 0;
   width:100%;
+  z-index: 1000;
   background-color: #2F4858; 
   display: flex; /* Flexbox를 사용 */
   justify-content: flex-start; /* 아이템을 시작점에서 정렬 */
@@ -42,37 +44,7 @@
   margin-right: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #FFFFFF;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: black;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.data {
+  font-size: 5rem;
+  color: white;
 }
