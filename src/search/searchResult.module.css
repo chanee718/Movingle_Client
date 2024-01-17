@@ -1,3 +1,11 @@
+h2 {
+  position: absolute;
+  margin-top: -32%;
+  margin-right: 72%;
+  color: white;
+  font-family: ExtraBold;
+  font-size: 2rem;
+}
 .container {
   display: flex;
   align-items: center;
