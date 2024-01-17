@@ -63,7 +63,7 @@ const EduReady: React.FC = () => {
                       textAlign: 'left', 
                       color: '#4E4351',
                       '&.Mui-focused': { // 포커스 상태일 때의 색상
-                        color: '#4E4351',
+                        color: 'rgb(49, 49, 88)',
                       },
                     }} 
                   >
@@ -82,14 +82,14 @@ const EduReady: React.FC = () => {
                         color: 'grey',
                       },
                       '& .MuiOutlinedInput-notchedOutline': { // 선택 전 테두리 색상
-                        borderColor: '#4E4351',
+                        borderColor: 'rgb(64, 64, 105)',
                       },
                       '&:hover .MuiOutlinedInput-notchedOutline': { // 호버 시 테두리 색상
-                        borderColor: '#4E4351',
+                        borderColor: 'rgb(49, 49, 88)',
                       },
                       // 포커스 상태일 때의 스타일 추가
                       '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                        borderColor: '#4E4351',
+                        borderColor: 'rgb(49, 49, 88)',
                       }
                     }}
                     onChange={handleSelectChange}
@@ -98,7 +98,7 @@ const EduReady: React.FC = () => {
                       <em>None</em>
                     </MenuItem>
                     {availableNumbers.map(number => (
-                    <MenuItem value={number} sx={{color: "#302037"}}>{number} quotes</MenuItem>
+                    <MenuItem value={number} sx={{color: "rgb(64, 64, 105)"}}>{number} quotes</MenuItem>
                     ))}
                   </Select>
                 </FormControl>
@@ -110,9 +110,9 @@ const EduReady: React.FC = () => {
                   onClick={handleEducation} 
                   sx={{
                     height: 40, 
-                    bgcolor: '#4E4351',
+                    bgcolor: 'rgb(64, 64, 105)',
                     '&:hover': {
-                      bgcolor: '#302037', // 호버 시의 배경색상
+                      bgcolor: 'rgb(49, 49, 88)', // 호버 시의 배경색상
                     },
                   }}
                 >

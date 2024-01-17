@@ -35,7 +35,7 @@
 }
 
 .nav-search {
-  background-color: #D9D9D9; /* 배경을 흰색으로 설정 */
+  background-color: #FFFFFF; /* 배경을 흰색으로 설정 */
   height: 2rem;
   width: 50vmax;
   padding: 0.5rem; /* 검색 창 내부의 패딩 */
@@ -58,8 +58,13 @@
   max-height: 80px;
 }
 
-.link {
+.link,
+.loginnn {
   font-family: bold;
   font-size: 1.2rem;
   margin: 0;
+}
+
+.loginnn {
+  margin-left: 8rem;
 }

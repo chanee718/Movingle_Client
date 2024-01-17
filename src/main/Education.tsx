@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Education.css';
-import { IconButton, Button } from '@mui/material';
+import { IconButton, Button, Rating } from '@mui/material';
 import { Delete, SkipNext, SkipPrevious, CheckCircle, Mic, Stop } from '@mui/icons-material';
 
 const Education: React.FC = () => {
@@ -165,11 +165,13 @@ const Education: React.FC = () => {
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % quotes.length); // 다음 명대사로 인덱스 업데이트
     setAudioUrl(null);
+    setPronunciationScore(null); // 발음 점수 초기화
   };
 
   const handlePrevious = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1) % quotes.length); // 다음 명대사로 인덱스 업데이트
     setAudioUrl(null);
+    setPronunciationScore(null); // 발음 점수 초기화
   };
 
   const highlightWord = (text: string) => {
@@ -261,10 +263,14 @@ const Education: React.FC = () => {
           <h2 className='eval'>Pronunciation Feedback</h2>
           <canvas ref={canvasRef} width="300" height="75" style={{ display: isRecording ? 'inline' : 'none' }}></canvas>
           {isLoading ? (
-            <p>Loading...</p> // 로딩 중 표시
+            <p>Evaluating...</p> // 로딩 중 표시
           ) : (
             pronunciationScore !== null && (
-              <p style={{ display: !isRecording ? 'inline' : 'none' }}>Your Pronunciation Score: {pronunciationScore}</p> // 점수 표시
+              //<p style={{ display: !isRecording ? 'inline' : 'none' }}>Your Pronunciation Score: {pronunciationScore}</p> // 점수 표시
+              <div className='rating'>
+                <Rating name="read-only" value={pronunciationScore} precision={0.01} readOnly max={5} size="large" />
+                <p className='yourscore'>{Number.parseFloat(pronunciationScore.toString()).toFixed(2)} / 5</p>
+              </div>
             )
           )}
         </div>
@@ -310,9 +316,9 @@ const Education: React.FC = () => {
               endIcon={<SkipNext />} 
               onClick={handleNext} 
               sx={{
-                bgcolor: '#4E4351',
+                bgcolor: 'rgb(64, 64, 105)',
                 '&:hover': {
-                  bgcolor: '#302037', // 호버 시의 배경색상
+                  bgcolor: 'rgb(49, 49, 88)', // 호버 시의 배경색상
                 },
               }}
             >
@@ -325,9 +331,9 @@ const Education: React.FC = () => {
               endIcon={<CheckCircle />} 
               onClick={handleSubmit}
               sx={{
-                bgcolor: '#4E4351',
+                bgcolor: 'rgb(64, 64, 105)',
                 '&:hover': {
-                  bgcolor: '#302037', // 호버 시의 배경색상
+                  bgcolor: 'rgb(49, 49, 88)', // 호버 시의 배경색상
                 },
               }}
             >
@@ -342,9 +348,9 @@ const Education: React.FC = () => {
               startIcon={<SkipPrevious />} 
               onClick={handlePrevious} 
               sx={{
-                bgcolor: '#4E4351',
+                bgcolor: 'rgb(64, 64, 105)',
                 '&:hover': {
-                  bgcolor: '#302037', // 호버 시의 배경색상
+                  bgcolor: 'rgb(49, 49, 88)', // 호버 시의 배경색상
                 },
               }}
             >

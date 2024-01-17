@@ -48,13 +48,21 @@ const Main: React.FC = () => {
     }, []);
     
     return (
-        <div className="main-container">
-            <h2 className="white-text">New Movies on Movingle!✨</h2>
-            <Carousel carouselList={newMovies} />
-            <h2 className="white-text">Popular Movies on Movingle!👭</h2>
-            <Carousel carouselList={popularMovies} />
-            <h2 className="white-text">Various Movies on Movingle!🌟</h2>
-            <Carousel carouselList={movies} />
+        <div className='main'>
+            <div className="main-container">
+                <div className="section">
+                    <h2 className="white-text">New Movies on Movingle</h2>
+                    <Carousel carouselList={newMovies} />
+                </div>
+                <div className="section">
+                    <h2 className="white-text">Popular Movies on Movingle</h2>
+                    <Carousel carouselList={popularMovies} />
+                </div>
+                <div className="section">
+                    <h2 className="white-text">Various Movies on Movingle</h2>
+                    <Carousel carouselList={movies} />
+                </div>
+            </div>
         </div>
     );
 }

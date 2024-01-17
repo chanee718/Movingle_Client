@@ -153,10 +153,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 10%;
-    left: 0;
-    right: 0;
+    margin-top: 15%;
   }
   
   .evaluation h2 {
@@ -164,4 +161,20 @@
     left: 3%;
     top: 0%;
     font-size: 1.1rem;
+  }
+
+  .rating {
+    margin-top: 4%;
+    width: 35%;
+    display: flex;
+    align-items: center; /* 수직 중앙 정렬 */
+  }
+  
+  .yourscore {
+    margin-left: 5%; /* 별점과 텍스트 사이의 간격 */
+    width: 100%;
+    font-size: 1.2rem; /* 텍스트 크기 조정 */
+    font-family: Regular;
+    margin-bottom: 8.5%;
+    /* 필요한 추가 스타일 */
   }
