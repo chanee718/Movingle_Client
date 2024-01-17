@@ -48,23 +48,27 @@ const Main: React.FC = () => {
     }, []);
     
     return (
-        <div className='main'>
-            <div className="main-container">
-                <div className="section">
-                    <h2 className="white-text">New Movies on Movingle</h2>
-                    <Carousel carouselList={newMovies} />
-                </div>
-                <div className="section">
-                    <h2 className="white-text">Popular Movies on Movingle</h2>
-                    <Carousel carouselList={popularMovies} />
-                </div>
-                <div className="section">
-                    <h2 className="white-text">Various Movies on Movingle</h2>
-                    <Carousel carouselList={movies} />
+        <div>
+            <img src={require('../images/main.png')} alt="Logo" width="1430vh" height="750vh"/>
+            <div className='main'>
+                <div className="main-container">
+                    <div className="section">
+                        <h2 className="white-text">New Movies on Movingle</h2>
+                        <Carousel carouselList={newMovies} />
+                    </div>
+                    <div className="section">
+                        <h2 className="white-text">Popular Movies on Movingle</h2>
+                        <Carousel carouselList={popularMovies} />
+                    </div>
+                    <div className="section">
+                        <h2 className="white-text">Various Movies on Movingle</h2>
+                        <Carousel carouselList={movies} />
+                    </div>
                 </div>
             </div>
         </div>
     );
+    
 }
 
 export default Main;

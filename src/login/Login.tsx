@@ -1,12 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css'; // CSS 파일 임포트
 import axios from 'axios';
+import Carousel from '../main/Login_Carousel';
 
 const Login: React.FC<{ onLoginSuccess: () => void }> = ({ onLoginSuccess }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [remember, setRemember] = useState(false);
+    const [movies, setMovies] = useState<any[]>([]);
+
+    useEffect(() => {
+        const fetchImages = async () => {
+            try {
+                const response = await axios.get('http://172.10.7.55:80/quotes/getTotal');
+                setMovies(response.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchImages();
+    }, []);
 
     const navigate = useNavigate();
 
@@ -43,7 +58,7 @@ const Login: React.FC<{ onLoginSuccess: () => void }> = ({ onLoginSuccess }) => 
     }
 
     return (
-        <div className="Login">
+        <><div className="Login">
             <form className="login-form" onSubmit={handleSubmit}>
                 <h1>LOGIN</h1>
                 <div className='form-group'>
@@ -53,26 +68,23 @@ const Login: React.FC<{ onLoginSuccess: () => void }> = ({ onLoginSuccess }) => 
                         id='email'
                         name='email'
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
+                        onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        name="password" 
-                        value={password} 
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <div className="remember-me">
-                    <input 
-                        type="checkbox" 
-                        id="remember" 
-                        checked={remember} 
-                        onChange={(e) => setRemember(e.target.checked)}
-                    />
+                    <input
+                        type="checkbox"
+                        id="remember"
+                        checked={remember}
+                        onChange={(e) => setRemember(e.target.checked)} />
                     <span></span>
                     <label htmlFor="remember"><span></span>Keep me signed in</label>
                     <button>
@@ -89,7 +101,10 @@ const Login: React.FC<{ onLoginSuccess: () => void }> = ({ onLoginSuccess }) => 
                     </button>
                 </div>
             </form>
-        </div>
+            <div className="carousel-container">
+                <Carousel carouselList={movies} />
+            </div>
+            </div></>
     );
 }
 
