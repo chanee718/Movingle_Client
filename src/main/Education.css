@@ -1,0 +1,167 @@
+.container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%; /* 왼쪽에서 50% 위치에 상자의 왼쪽 모서리가 오도록 함 */
+    top: 50%; /* 위에서 50% 위치에 상자의 상단 모서리가 오도록 함 */
+    transform: translate(-50%, -50%); /* 상자의 중심을 정확히 브라우저 중심에 맞춤 */
+    background: transparent;
+    display: flex;
+    flex-direction: space-between;
+  }
+  
+  .sentence-box {
+    position: absolute;
+    top: 17%;
+    left: 15%;
+    width: 50%;
+    height: 75%;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .fade-enter {
+    opacity: 0;
+  }
+  
+  .fade-enter-active {
+    opacity: 1;
+  }
+
+  .vocabulary {
+    position: absolute;
+    top: 17%;
+    right: 10%;
+    width: 20%;
+    height: 75%;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .sentline {
+    width: 100%;
+    position: absolute;
+    top: 9%;
+  }
+
+  .sent-title {
+    position: absolute;
+    top: 1%;
+    left: 5%;
+  }
+
+  .vocabline {
+    width: 90%;
+    left: 5%;
+    position: absolute;
+    top: 9%;
+  }
+  
+  .vocab-title {
+    position: absolute;
+    top: 1%;
+    left: 10%;
+  }
+
+  .quote {
+    margin-top: 17%;
+    margin-left: 11%;
+    margin-right: 11%;
+    font-style: italic;
+    font-size: 1.2rem;
+    word-wrap: break-word;
+  }
+
+  .word:hover {
+    background-color: #ffeff2; /* 하이라이트 색상 */
+    cursor: pointer;
+  }
+
+  .list {
+    margin-top: 20%;
+    margin-left: 8%;
+    margin-right: 8%;
+    height: 85%;
+    list-style: none;
+    padding: 0.3rem 0.5rem;
+    overflow-y: auto;
+  }
+  .list li {
+    display: flex; /* Flexbox 적용 */
+    justify-content: space-between; /* 양 끝에 요소 배치 */
+    align-items: center; /* 세로 중앙 정렬 */
+  }
+  
+  .list li .listedword {
+    flex-grow: 1; /* 가능한 모든 공간 차지 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+  }
+
+  .next {
+    position: absolute;
+    right: 3%;
+    bottom: 3%;
+  }
+
+  .previous {
+    position: absolute;
+    left: 3%;
+    bottom: 3%;
+  }
+
+  .record {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; /* 고정된 위치 */
+    bottom: 3%; /* 아래에서 20px의 간격을 둡니다 */
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .listen audio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; /* 고정된 위치 */
+    bottom: 12%; /* 아래에서 20px의 간격을 둡니다 */
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .evaluation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 25%;
+    left: 0;
+    right: 0;
+    height: 25%;
+    width: 80%;
+    margin: auto;
+    border-radius: 10px;
+    background-color: rgb(237, 237, 237);
+  }
+
+  .evaluation audio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+  }
+  
+  .evaluation h2 {
+    position: absolute;
+    left: 3%;
+    top: 0%;
+    font-size: 1.1rem;
+  }

@@ -1,5 +1,5 @@
 .Join {
-    background: linear-gradient(#2F4858, #515F75, #787690, #A18DA8, #CAA6BB, #F1C1CC);
+    background: linear-gradient(165deg, #2F4858, #515F75, #787690, #A18DA8, #CAA6BB, #F1C1CC);
     text-align: center;
     justify-content: center;
     display: flex;
@@ -16,6 +16,7 @@
 }
 
 .join-form h1 {
+    font-family: ExtraBold;
     font-size: 2.2rem;
     margin-bottom: 3rem;
     color: #fff;
@@ -23,6 +24,7 @@
 
 .join-form label {
     display: block;
+    font-family: Regular;
     text-align: left;
     color: #fff;
 }
