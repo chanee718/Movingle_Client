@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './Mypage.css';
+import History from './History'
 import axios from 'axios';
+
+interface Word {
+  word: string;
+  definition: string;
+}
 
 const Mypage: React.FC = () => {
   const [user, setUser] = useState<any>();
@@ -81,12 +87,21 @@ const Mypage: React.FC = () => {
     }
   };
 
+  const groupWords = (words: Word[], size: number): Word[][] => {
+    return words.reduce<Word[][]>((acc, curr, i) => {
+      if (i % size === 0) acc.push([]);
+      acc[Math.floor(i / size)].push(curr);
+      return acc;
+    }, []);
+  };
+  
+  const groupedWords = groupWords(words, 3);
+
   return (
     <>
       {user && (
         <>
           <h2 className='welcome'>{getTierEmoji()} Welcome, {user.data.firstname} {user.data.lastname} !</h2>
-          <button className='modifyButton'>Modify My Page</button>
           <div className='profile'>
             <div className='profileImg'>
               <img src={`http://172.10.7.55/public/images/${user.data.profileImage}`} alt={`${user.data.firstname} profile`} />
@@ -106,14 +121,20 @@ const Mypage: React.FC = () => {
           </div>
           <div className='movieContainer'>
           </div>
-          <div className='wordContainer'>
-            {words.map((word, index) => (
-              <div key={index} className='wordEntry'>
-                <div className='divider'></div>
-                <p className='word'>{word.word}</p>
-                <p className='definition'>{word.definition}</p>
-              </div>
-            ))}
+          <div className='history'>
+            <h2 className='htext'>History</h2>
+            <History carouselList={movies} />
+          </div>
+          <div className='myvocab'>
+            <h2>My Vocabulary</h2>
+            <div className='wordContainer'>
+              {words.map((word, index) => (
+                <div key={index} className='wordEntry'>
+                  <p className='term'>{word.word}</p>
+                  <p className='definition'>{word.definition}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </>
       )}

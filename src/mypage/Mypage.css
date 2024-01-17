@@ -5,18 +5,6 @@
     color: white;
     font-family: ExtraBold;
 }
-.modifyButton {
-    width: 150px;
-    height: 40px;
-    background-color: white;
-    color: #333; 
-    border: 1px solid #ccc;
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-  }
 .profile {
     margin-top: 5rem;
     width: 60%;
@@ -29,25 +17,24 @@
     border-radius: 10px;
     background: #ffffff;
 }
-.wordContainer {
-    margin-top: 0rem;
-    width: 60%;
-    height: 50%;
-    position: absolute;
-    left: 50%;
-    top: 70%; /* Profile 상자 아래에 위치하도록 조정 */
-    transform: translate(-50%, -50%);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    background: #ffffff;
-    overflow-y: auto;
+.history {
+    margin-top: 20%;
+}
+.history h2 {
+    color: white;
+    width: max-content;
+    margin-top: -1%;
+    margin-bottom: -1%;
+    margin-left: 20%;
+    font-size: 200%;
+    font-family: Bold;
 }
 .profileImg {
     position: absolute;
-    top: 9%;
+    top: 5%;
     left: 5%;
     width: 13%; /* 이미지 컨테이너의 너비를 .profile의 너비의 일정 비율로 설정 */
-    height: 80%; /* 높이는 자동으로 설정하여 비율 유지 */
+    height: 90%; /* 높이는 자동으로 설정하여 비율 유지 */
 }
 
 .profileImg img {
@@ -68,7 +55,8 @@
 }
 
 .tiertext {
-    position: absolute;max-width: 25%;
+    position: absolute;
+    max-width: 25%;
     left: 22%;
     top: 43%;
     font-size: 1.2rem;
@@ -125,22 +113,50 @@
     font-family: SemiBold;
 }
 
-.wordEntry {
+.myvocab h2 {
+    color: white;
+    width: max-content;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    margin-left: 20.5%;
+    font-size: 200%;
+    font-family: Bold;
+}
+
+.wordContainer {
+    margin-top: 0rem;
+    margin-bottom: 5%;
+    margin-left: 20.5%;
+    width: 60%;
+    height: 100%; /* Adjust height as necessary */
+    position: relative; /* Changed from absolute to relative */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-  }
+    overflow-x: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.wordEntry {
+    flex: 0 0 20%; /* 카드의 너비를 200px로 고정 */
+    height: 30%; /* 카드의 높이를 150px로 고정 */
+    flex-direction: column; /* 항목들을 열로 정렬 */
+    max-height: 300px; /* 카드의 최대 높이 설정, 필요에 따라 조정 */
+    background: #FFFFFF; /* 배경색 */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* 그림자 효과 */
+    padding: 1rem;
+    border-radius: 10px; /* 모서리 둥글게 */
+    text-align: center; /* 텍스트 왼쪽 정렬 */
+    margin-bottom: 1rem; /* 카드 하단 여백 */
+}
   
-  .divider {
-    height: 100%;
-    width: 1px;
-    background-color: #CCC;
-  }
+.term {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333333;
+}
   
-  .word,
-  .definition {
-    flex: 1;
-    margin: 0;
-  }
-  
+.definition {
+    font-size: 1rem;
+    color: #666666;
+}

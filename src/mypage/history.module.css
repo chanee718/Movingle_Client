@@ -1,0 +1,86 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+
+  &:hover {
+    .swipeLeft,
+    .swipeRight {
+      position: absolute;
+      z-index: 1;
+      display: flex;
+      background-color: white;
+      align-items: center;
+      height: 10%;
+      width: 2.5%;
+      margin-bottom: 0.5%;
+      border: none;
+      border-radius: 5px;
+      opacity: 0.7;
+    }
+  }
+
+  .swipeLeft,
+  .swipeRight {
+    display: none;
+    padding: 0;
+    margin: 0 2rem;
+    cursor: pointer;
+  }
+  
+  .swipeLeft {
+    left: 0;
+  }
+
+  .swipeRight {
+    right: 0;
+  }
+
+  .carouselWrapper {
+    position: relative;
+    width: 40%;
+    height: 100%;
+    padding: 0 10%;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    overflow: hidden;
+
+    .carousel {
+      display: flex;
+      width: 100%;
+
+      li {
+        flex: none;
+        object-fit: contain;
+
+        a {
+          display: block; /* Link를 블록 레벨로 만들기 */
+          width: 100%; /* Link의 너비를 li 요소의 너비에 맞추기 */
+          height: 100%; /* Link의 높이를 li 요소의 높이에 맞추기 */
+          text-decoration: none; /* 텍스트 꾸밈 제거 */
+        }
+      }
+    }
+  }
+
+  .carouselItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 25%;
+    padding: 10px 0 15px;
+    overflow: hidden;
+    margin: 0 5px;
+    transition: border 300ms;
+
+    img {
+      width: 100%; /* 너비를 항상 100%로 유지 */
+      height: 100%; /* 높이도 항상 100%로 유지 */
+      object-fit: cover; /* 이미지가 비율을 유지하면서 요소를 채우도록 함 */
+      object-position: center; /* 이미지가 중앙에 위치하도록 함 */
+      border-radius: 0.5rem;
+    }
+  }
+}
