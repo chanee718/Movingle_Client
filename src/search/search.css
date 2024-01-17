@@ -1,19 +1,13 @@
-.main-container {
-    margin-top: 6%;
+.ctinr {
     text-align: left;
     display: flex;
     flex-direction: column;
-}
+  }
 
-.section {
-    margin-bottom: 2rem; /* 캐러셀 간의 간격을 조정 */
-}
-
-.white-text {
+.wt {
     color: white;
     width: max-content;
-    margin-top: -1%;
-    margin-bottom: -1%;
+    margin-top: 5%;
     margin-left: 7%;
     font-size: 200%;
     font-family: Bold;

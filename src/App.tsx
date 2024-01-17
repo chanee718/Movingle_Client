@@ -64,7 +64,7 @@ const App: React.FC = () => {
           <LogoutButton />
         ) : (
           <Link to="/login" >
-            <p className='link'>Login</p>
+            <p className='loginnn'>Login</p>
           </Link>
         )}
       </nav>

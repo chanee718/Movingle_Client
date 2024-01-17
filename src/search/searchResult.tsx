@@ -71,7 +71,6 @@ const SearchResult = ({ carouselList }: Props) => {
 
   return (
     <div className={styles.container}>
-      <h2>Search Results</h2>
       {/* 왼쪽으로 이동하는 버튼 */}
       {showLeftButton && (
         <button type='button' className={styles.swipeLeft} onClick={() => handleSwipe(-1)}>
