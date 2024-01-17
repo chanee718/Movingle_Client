@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import styles from './carousel.module.css';
+import styles from './login.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { ReactComponent as Left } from "../images/left.svg"
 import { ReactComponent as Right } from "../images/right.svg"
@@ -16,40 +16,29 @@ interface Props {
   carouselList: Movie[]; // Props의 타입을 Movie 객체 배열로 변경
 }
 
-const Carousel = ({ carouselList }: Props) => {
-  const [currIndex, setCurrIndex] = useState(1)     // 현재 슬라이드의 index  
+const LoginCarousel = ({ carouselList }: Props) => {
+  const [currIndex, setCurrIndex] = useState(0)     // 현재 슬라이드의 index  
   const carouselRef = useRef<HTMLUListElement>(null)
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
-    updateLoginStatus();
-  }, []);
+    // 자동 슬라이딩 로직
+    const interval = setInterval(() => {
+      setCurrIndex(prevIndex => {
+        const newIndex = prevIndex + 1;
+        return newIndex < carouselList.length ? newIndex : 0;
+      });
+    }, 3000); // 3초 간격으로 슬라이드 변경
 
-  const updateLoginStatus = () => {
-    const authToken = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
-    setIsLoggedIn(!!authToken);
-  };
-
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    if (!isLoggedIn) {
-      e.preventDefault(); // 기본 Link 동작 방지
-      navigate('/login'); // 로그인 페이지로 이동
-    }
-    // 로그인이 되어 있으면 기본 동작 수행 (Link to={`/movie/${idx}`})
-  };
+    return () => clearInterval(interval); // 컴포넌트 언마운트 시 인터벌 정리
+  }, [carouselList.length]);
 
   useEffect(() => {
     if (carouselRef.current) {
       const carousel = carouselRef.current; // Ref에서 carousel 요소 가져오기
-      const itemWidth = carousel.clientWidth / 7; // 7개 항목의 각 너비
-      const totalMargin = 5;
-      const moveDistance = itemWidth + totalMargin; // 한 항목의 너비 + 마진
-      const movePercentage = (moveDistance / carousel.clientWidth) * 100; // 전체 너비 대비 이동 비율(%)
+      const moveDistance = 100;
       
       carousel.style.transition = 'transform 0.5s ease-in-out';
-      carousel.style.transform = `translateX(-${currIndex * movePercentage}%)`;
+      carousel.style.transform = `translateX(-${(currIndex * (moveDistance - 8))}%)`;
     }
   }, [currIndex, carouselRef]);   //currIndex가 변경될 때마다 translateX
   
@@ -63,7 +52,7 @@ const Carousel = ({ carouselList }: Props) => {
   };
   
   const showLeftButton = currIndex > 1;
-  const showRightButton = currIndex < carouselList.length - 7;
+  const showRightButton = currIndex < carouselList.length;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -77,18 +66,6 @@ const Carousel = ({ carouselList }: Props) => {
 
   return (
     <div className={styles.container}>
-      {/* 왼쪽으로 이동하는 버튼 */}
-      {showLeftButton && (
-        <button type='button' className={styles.swipeLeft} onClick={() => handleSwipe(-1)}>
-          <Left style={{ width: '50px', height: '50px', objectFit: 'cover'}} />
-        </button>
-      )}
-      {/* 오른쪽으로 이동하는 버튼 */}
-      {showRightButton && (
-        <button type='button' className={styles.swipeRight} onClick={() => handleSwipe(1)}>
-          <Right style={{ width: '50px', height: '50px', objectFit: 'cover' }} />
-        </button>
-      )}
       <div
         className={styles.carouselWrapper}
       >
@@ -99,9 +76,7 @@ const Carousel = ({ carouselList }: Props) => {
 
             return (
               <li key={key} className={styles.carouselItem}>
-                <Link to={`/movie/${movie.contents_id}`} onClick={handleClick}>
-                  <img src={movie.poster_url} alt={`${movie.movie} poster`} />
-                </Link>
+                <img src={movie.poster_url} alt={`${movie.movie} poster`} />
               </li>
             )
           })}
@@ -111,4 +86,4 @@ const Carousel = ({ carouselList }: Props) => {
   )
 }
 
-export default Carousel
+export default LoginCarousel

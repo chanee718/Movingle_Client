@@ -49,7 +49,7 @@ const Main: React.FC = () => {
     
     return (
         <div>
-            <img src={require('../images/main.png')} alt="Logo" width="1430vh" height="750vh"/>
+            <img src={require('../images/main.png')} alt="Logo" className="fullWidthImage"/>
             <div className='main'>
                 <div className="main-container">
                     <div className="section">

@@ -89,9 +89,7 @@ const History = ({ carouselList }: Props) => {
 
             return (
               <li key={key} className={styles.carouselItem}>
-                <Link to={`/movie/${movie.contents_id}`} onClick={handleClick}>
-                  <img src={movie.poster_url} alt={`${movie.movie} poster`} />
-                </Link>
+                <img src={movie.poster_url} alt={`${movie.movie} poster`} />
               </li>
             )
           })}
