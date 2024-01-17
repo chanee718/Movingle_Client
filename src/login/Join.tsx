@@ -26,34 +26,18 @@ const Join: React.FC = () => {
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
-        if (password !== confirm) {
-            setIsPasswordMatch(false); // 비밀번호가 일치하지 않으면 요청을 보내지 않음
-        } else {
-            setIsPasswordMatch(true);
+        const isFormValid = firstname !== '' && lastname !== '' && email !== '' && password !== '' && oneliner !== '' && password === confirm;
+
+        // 유효성 검사 실패 시 함수 종료
+        if (!isFormValid) {
+            setIsPasswordMatch(password === confirm);
+            setHasfirstname(firstname !== '');
+            setHaslastname(lastname !== '');
+            setHasemail(email !== '');
+            setHaspassword(password !== '');
+            setHasoneliner(oneliner !== '');
+            return; // 여기서 함수 종료
         }
-        //firstname이 입력되었는지 확인
-        if (firstname === ''){
-            setHasfirstname(false);
-        } else setHasfirstname(true);
-        //lastname이 입력되었는지 확인
-        if (lastname === ''){
-            setHaslastname(false);
-        } else setHaslastname(true);
-        //email이 입력되었는지 확인
-        if (email === ''){
-            setHasemail(false);
-        } else setHasemail(true);
-        //password가 입력되었는지 확인
-        if (password === ''){
-            setHaspassword(false);
-        } else setHaspassword(true);
-        //onliner가 입력되었는지 확인
-        if (oneliner === ''){
-            setHasoneliner(false);
-        } else setHasoneliner(true);
-
-        if (!hasfirstname && !haslastname && !hasemail && !hasoneliner && !haspassword) return;
-
         //서버에 보낼 data 정의
         const formData = new FormData();
         
@@ -67,18 +51,19 @@ const Join: React.FC = () => {
         formData.append('oneliner', oneliner);
 
         try {
+            if (!hasfirstname || !haslastname || !hasemail || !hasoneliner || !haspassword) return;
             const response = await axios.post('http://172.10.7.55:80/register', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             });
             console.log(response.data);
+            alert('Your account was successfully confirmed.'); // 알림 표시
+            navigate('/login'); // 로그인 페이지로 리디렉트
             // 여기에서 서버로부터 반환된 이미지 URL을 처리할 수 있습니다.
         } catch (error) {
             console.error('There was an error!', error);
         }
-        alert('Your account was successfully confirmed.'); // 알림 표시
-        navigate('/login'); // 로그인 페이지로 리디렉트
         
     };
 
@@ -102,7 +87,7 @@ const Join: React.FC = () => {
     return (
         <div className="Join">
             <form className="join-form" onSubmit={handleSubmit}>
-                <h1>JOIN to Scenglish</h1>
+                <h1>JOIN to Movingle</h1>
                 <div className='image-group'>
                     <label>Profile Image</label>
                     {previewUrl ? (
@@ -194,7 +179,7 @@ const Join: React.FC = () => {
                         onChange={(e) => setConfirm(e.target.value)}
                         style={{ borderColor: isPasswordMatch ? '' : 'red' }}
                     />
-                    {!isPasswordMatch && <div className='warning'>Passwords do not match</div>}
+                    {!isPasswordMatch && <div className='warning'>Password do not match</div>}
                 </div>
                 <div className='create'>
                     <button type="submit">Create Account</button>

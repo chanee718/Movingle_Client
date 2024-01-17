@@ -1,4 +1,70 @@
-h1 {
+.movie-card {
     margin-top: 5rem;
-    font-size: 5rem;
-}
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    left: 50%; /* 왼쪽에서 50% 위치에 상자의 왼쪽 모서리가 오도록 함 */
+    top: 50%; /* 위에서 50% 위치에 상자의 상단 모서리가 오도록 함 */
+    transform: translate(-50%, -50%); /* 상자의 중심을 정확히 브라우저 중심에 맞춤 */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #ffffff;
+    opacity: 0.7;
+  }
+  
+  .movie-poster img {
+    position: absolute;
+    left: 5%; /* 왼쪽에서 50% 위치에 상자의 왼쪽 모서리가 오도록 함 */
+    top: -10%; /* 위에서 50% 위치에 상자의 상단 모서리가 오도록 함 */
+    width: 33%;
+    height: 100%;
+    opacity: 1.0;
+  }
+  
+  .movie-content h1 {
+    position: absolute;
+    width: fit-content;
+    left: 43%;
+    top: 4%;
+    color: #000000;
+  }
+  
+  .release-date {
+    position: absolute;
+    width: fit-content;
+    left: 43%;
+    top: 14%;
+    color: #646464;
+    font-size: 1rem;
+  }
+
+  .overview {
+    position: absolute;
+    width: fit-content;
+    left: 43%;
+    top: 22%;
+    font-size: 1.2rem;
+  }
+  
+  .movie-description {
+    max-height: 50%; /* 최대 높이 설정 */
+    overflow-y: auto; /* 내용이 넘칠 경우에만 수직 스크롤 표시 */
+    width: auto;
+    position: absolute;
+    left: 43%;
+    top: 30%;
+    text-align: left;
+    padding-right: 10%;
+    white-space: normal;
+    font-size: 0.95em;
+    line-height: 2;
+  }
+
+  .move {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 3%;
+    bottom: 3%;
+    align-items: center;
+  }

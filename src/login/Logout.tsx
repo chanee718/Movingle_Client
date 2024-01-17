@@ -13,7 +13,7 @@ const Logout = () => {
   };
 
   return (
-    <a href="" onClick={handleLogout} style={{ color: 'white', cursor: 'pointer' }}>
+    <a href="" onClick={handleLogout} style={{ margin: '0', marginLeft: '1.5rem', marginRight: '3rem', fontFamily: 'Bold', fontSize: '1.2rem', color: 'white', cursor: 'pointer' }}>
       Logout
     </a>
   );

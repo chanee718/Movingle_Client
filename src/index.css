@@ -11,3 +11,93 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "Black";
+  src: url(./fonts/NotoSans-Black.ttf);
+}
+
+@font-face {
+  font-family: "BlackItalic";
+  src: url(./fonts/NotoSans-BlackItalic.ttf);
+}
+
+@font-face {
+  font-family: "Bold";
+  src: url(./fonts/NotoSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: "BoldItalic";
+  src: url(./fonts/NotoSans-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: "ExtraBold";
+  src: url(./fonts/NotoSans-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: "ExtraBoldItalic";
+  src: url(./fonts/NotoSans-ExtraBoldItalic.ttf);
+}
+
+@font-face {
+  font-family: "ExtraLight";
+  src: url(./fonts/NotoSans-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: "ExtraLightItalic";
+  src: url(./fonts/NotoSans-ExtraLightItalic.ttf);
+}
+
+@font-face {
+  font-family: "Italic";
+  src: url(./fonts/NotoSans-Italic.ttf);
+}
+
+@font-face {
+  font-family: "Light";
+  src: url(./fonts/NotoSans-Light.ttf);
+}
+
+@font-face {
+  font-family: "LightItalic";
+  src: url(./fonts/NotoSans-LightItalic.ttf);
+}
+
+@font-face {
+  font-family: "Medium";
+  src: url(./fonts/NotoSans-Medium.ttf);
+}
+
+@font-face {
+  font-family: "MediumItalic";
+  src: url(./fonts/NotoSans-MediumItalic.ttf);
+}
+
+@font-face {
+  font-family: "Regular";
+  src: url(./fonts/NotoSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "SemiBold";
+  src: url(./fonts/NotoSans-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "SemiBoldItalic";
+  src: url(./fonts/NotoSans-SemiBoldItalic.ttf);
+}
+
+@font-face {
+  font-family: "Thin";
+  src: url(./fonts/NotoSans-Thin.ttf);
+}
+
+@font-face {
+  font-family: "ThinItalic";
+  src: url(./fonts/NotoSans-ThinItalic.ttf);
+}

@@ -1,0 +1,140 @@
+.welcome {
+    position: absolute;
+    left: 20%;
+    top: 12%;
+    color: white;
+    font-family: ExtraBold;
+}
+.profile {
+    margin-top: 5rem;
+    width: 60%;
+    height: 20%;
+    position: absolute;
+    left: 50%; /* 왼쪽에서 50% 위치에 상자의 왼쪽 모서리가 오도록 함 */
+    top: 20%; /* 위에서 50% 위치에 상자의 상단 모서리가 오도록 함 */
+    transform: translate(-50%, -50%); /* 상자의 중심을 정확히 브라우저 중심에 맞춤 */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #ffffff;
+}
+.wordContainer {
+    margin-top: 0rem;
+    width: 60%;
+    height: 50%;
+    position: absolute;
+    left: 50%;
+    top: 70%; /* Profile 상자 아래에 위치하도록 조정 */
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #ffffff;
+    overflow-y: auto;
+}
+.profileImg {
+    position: absolute;
+    top: 9%;
+    left: 5%;
+    width: 13%; /* 이미지 컨테이너의 너비를 .profile의 너비의 일정 비율로 설정 */
+    height: 80%; /* 높이는 자동으로 설정하여 비율 유지 */
+}
+
+.profileImg img {
+    border-radius: 50%;
+    width: 100%; /* 이미지가 컨테이너의 너비에 맞추어져 조정 */
+    height: 100%; /* 이미지의 높이는 자동으로 설정하여 비율 유지 */
+    object-fit: cover;
+}
+
+.oneliner {
+    position: absolute;
+    max-width: 25%;
+    word-break: break-all;
+    left: 22%;
+    top: 13%;
+    font-size: 1.3rem;
+    font-family: MediumItalic;
+}
+
+.tiertext {
+    position: absolute;max-width: 25%;
+    left: 22%;
+    top: 43%;
+    font-size: 1.2rem;
+    font-family: Light;
+}
+
+.tier {
+    color: #9A400A;
+    font-family: Bold;
+}
+
+.divider1,
+.divider2 {
+    height: 70%;
+    top: 15%;
+    width: 2px;
+    position: absolute;
+    background-color: #CCC;
+}
+
+.divider1 {
+    left: 50%;
+}
+
+.divider2 {
+    left: 75%;
+}
+
+.ctn {
+    position: absolute;
+    top: 10%;
+    left: 54%;
+}
+
+.contentnum {
+    font-size: 1.1rem;
+    font-family: Medium;
+}
+
+.vcn {
+    position: absolute;
+    top: 10%;
+    left: 82%;
+}
+
+.vocabnum {
+    font-size: 1.1rem;
+    font-family: Medium;
+}
+
+.num {
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    font-family: SemiBold;
+}
+
+.wordEntry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .languageLabel,
+  .definitionLabel {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .divider {
+    height: 100%;
+    width: 1px;
+    background-color: #CCC;
+  }
+  
+  .word,
+  .definition {
+    flex: 1;
+    margin: 0;
+  }
+  
