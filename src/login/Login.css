@@ -121,3 +121,10 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+.carousel-container {
+    position: absolute;
+    top: 300px;
+    right: 0;
+    width: 800px; /* 원하는 너비로 조절하세요. */
+  }
